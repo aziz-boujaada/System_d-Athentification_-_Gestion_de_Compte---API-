@@ -31,10 +31,10 @@ class ProfileController extends Controller
     /**
      * Update user profile.
      */
-    public function updateProfile(UpdateProfileRequest $request, $id)
+    public function updateProfile(UpdateProfileRequest $request)
     {
         $user = Auth::user();
-        if (!$user || $user->id != $id) {
+        if (!$user) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Unauthorized'
@@ -53,10 +53,10 @@ class ProfileController extends Controller
     /**
      * Reset user password.
      */
-    public function resetPassword(Request $request, string $id)
+    public function resetPassword(Request $request)
     {
         $user = Auth::user();
-        if (!$user || $user->id != $id) {
+        if (!$user) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Unauthorized'
@@ -88,10 +88,10 @@ class ProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyProfile(string $id)
+    public function destroyProfile()
     {
         $user = Auth::user();
-        if (!$user || $user->id != $id) {
+        if (!$user) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Unauthorized'
