@@ -63,26 +63,26 @@ class ProfileController extends Controller
             ], 403);
         }
 
-        $request->validate([
-            'old_password' => 'required|string',
-            'new_password' => 'required|string|min:8|confirmed',
-        ]);
+        
+            $validated = $request->validate([
+                'old_password' => 'required|string',
+                'new_password' => 'required|string|min:8',
+            ]);
+        
 
         if (!Hash::check($request->old_password, $user->password)) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Old password is incorrect'
-            ], 400);
+            ], 422);
         }
 
-        $user->update([
-            'password' => Hash::make($request->new_password)
-        ]);
+        $user->update(['password' => Hash::make($request->new_password) ]);
 
         return response()->json([
             'status' => 'success',
             'message' => 'Password reset successfully'
-        ]);
+        ], 200);
     }
 
     /**
