@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "3e1de491-ea3a-4c8d-bcd8-fb49627db73d",
+		"name": "Auth & Profile Managment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47251985",
+		"_collection_link": "https://aziz-boujaada-1320629.postman.co/workspace/System-Auth~faa320c4-d8f4-4c5b-b6c3-ceecc2b056a2/collection/47251985-3e1de491-ea3a-4c8d-bcd8-fb49627db73d?action=share&source=collection_link&creator=47251985"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "azoz ",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "azoz11@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "azoz1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}register",
+					"host": [
+						"{{url}}register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"azoz11@gmail.com\",\n    \"password\" : \"azoz1234\"\n }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}login",
+					"host": [
+						"{{url}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "7|I9nv1NgMV3NWhFmI1KQEKTpGcRAkjRQVjSaKAZBtbca09270",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}logout",
+					"host": [
+						"{{url}}logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show-my-profile",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "reset-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "8|8YDwEvlDOwl3wrajNHYyHDKEWQbEyOJIF65Uu54tc3741dd8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"old_password\" : \"hamza1234\",\n    \"new_password\" : \"hamza@1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}me/reset-password",
+					"host": [
+						"{{url}}me"
+					],
+					"path": [
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "8|8YDwEvlDOwl3wrajNHYyHDKEWQbEyOJIF65Uu54tc3741dd8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "hamza",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hamza@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "hamza1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}me",
+					"host": [
+						"{{url}}me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete-profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9|9|jf0VdYcGCHFJpGZMvmJPnw1ASC8Tse2fAnzIkiiO9c004eb6",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}me",
+					"host": [
+						"{{url}}me"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
